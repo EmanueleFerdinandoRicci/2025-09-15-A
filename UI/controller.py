@@ -49,18 +49,19 @@ class Controller:
             )
         self._view.update_page()
 
-
     def handleCerca(self, e):
         k = self._view._txtInK.value
         #controlli validità
         kInt = int(k)
 
-        listPilotiOttima, minDistEta = self._model.getListaPilotiOttima(k)
+        listPilotiOttima, minDistEta = self._model.getListaPilotiOttima(kInt)
         if listPilotiOttima is None:
             self._view.txt_result.controls.clear()
             self._view.txt_result.controls.append(
                 ft.Text(f"Non ho trovato una lista di {k} piloti ottima per il numero di componenti connesse che ho")
             )
+            self._view.update_page()
+            return
         self._view.txt_result.controls.clear()
         self._view.txt_result.controls.append(
             ft.Text(f"Lista di piloti con scarto di età minimo che non sono mai stati compagni di squadra nel range")
@@ -77,6 +78,7 @@ class Controller:
         self._view.txt_result.controls.append(
             ft.Text(f"Pilota più giovane: {youngest} - Pilota più anziano: {oldest}")
         )
+        self._view.update_page()
 
     def fillDDYear(self):
         years = self._model.getAllYears()

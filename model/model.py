@@ -76,7 +76,7 @@ class Model:
             return
 
         # se non sono uscito, allora posso aggiungere ancora piloti. Per questa componente, di indice indexComponente,
-        # provo ad ingaggiare un pilota oppure a non ingaggiare nessuno.
+        # provo a ingaggiare un pilota oppure a non ingaggiare nessuno.
 
         #caso 1, inserisco un pilota appartenente a questa comp connessa. In questo branch provo tutti i piloti che
         # fanno parte della componente connessa in esame.
@@ -86,5 +86,5 @@ class Model:
             self._ricorsione(components, k, parziale, indexComponente+1)
             parziale.pop()
 
-        #caso 2, mi tengo un brach di esplorazione in cui io non ho preso proprio nessuno da questa comonente.
+        #caso 2, mi tengo un branch di esplorazione in cui io non ho preso proprio nessuno da questa componente.
         self._ricorsione(components, k, parziale, indexComponente+1)
