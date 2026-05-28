@@ -10,9 +10,19 @@ class Controller:
 
 
     def handleCreaGrafo(self,e):
-        pass
+        self._model.buildGraph(self._view._ddAnno1.value, self._view._ddAnno2.value)
+        n,e = self._model.getGraphDetails()
+        self._view.txt_result.controls.clear()
+        self._view.update_page()
+
     def handleDettagli(self, e):
         pass
     def handleCerca(self, e):
         pass
 
+    def fillDDYear(self):
+        years = self._model.getAllYears()
+        for y in years:
+             self._view._ddAnno1.options.append(ft.dropdown.Option(y))
+             self._view._ddAnno2.options.append(ft.dropdown.Option(y))
+        self._view.update_page()
