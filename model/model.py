@@ -13,6 +13,7 @@ class Model:
         self._optListPiloti = []
         self._minDistGiorni = 0
 
+
     def getAllYears(self):
         return DAO.getAllYears()
 
